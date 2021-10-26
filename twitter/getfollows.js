@@ -213,7 +213,7 @@ async function Analyse(analyselist) {
 
 async function logstr(str) {
     try {
-        await fsp.appendFile("log.csv",str);
+        await fsp.appendFile("log.tsv",str);
     } catch(error) { 
         console.log("Can't access log file"); 
         process.exit(1); // exit because being able to log is the main goal
