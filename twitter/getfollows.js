@@ -198,7 +198,7 @@ async function Analyse(analyselist) {
         var checkname=updatelist[i];        
         var updated=await updateAppend(checkname);  
         for (let i=0;i<updated.length;i++) 
-           log+=`${checkname};${updated[i]};${dd}-${mm}-${yy}\n`;
+           log+=`${checkname}\t${updated[i]}\t${dd}-${mm}-${yy}\n`;
         updates+=updated.length    
         if (log) {
             await logstr(log);    
@@ -224,7 +224,7 @@ var startTime, endTime;
 
 async function start(n) {
   startTime = new Date();
-  var str=`;;;=======Start scan: Analyse ${n} accounts at ${startTime.toLocaleString()}\n`;
+  var str=`\t\t\t=======Start scan: Analyse ${n} accounts at ${startTime.toLocaleString()}\n`;
   await logstr(str);
   console.log(str);
 };
@@ -238,7 +238,7 @@ async function end(n,totalupdates) {
   // get seconds 
   var seconds = Math.round(timeDiff);
   //console.log(seconds + " seconds");
-  var str=`;;;=======End scan: ${n} accounts checked, new follows ${totalupdates} in ${seconds} seconds ${endTime.toLocaleString()}\n`;
+  var str=`\t\t\t=======End scan: ${n} accounts checked. New follows ${totalupdates} in ${seconds} seconds ${endTime.toLocaleString()}\n`;
   await logstr(str);
   console.log(str);
 }
